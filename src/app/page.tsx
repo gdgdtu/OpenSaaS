@@ -1,52 +1,58 @@
-import Link from "next/link";
+'use client'
 
-function Header() {
-  return (
-    <header className="w-full py-4 bg-blue-600 text-white">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">OpenSaaS</h1>
-        <nav>
-          <ul className="flex gap-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  );
+import { motion } from 'framer-motion'
+import FeatureGrid from '@/components/ui/FeatureGrid'
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1
+    }
+  }
 }
 
-function Footer() {
-  return (
-    <footer className="w-full py-4 bg-gray-800 text-white mt-8">
-      <div className="container mx-auto text-center">
-        <p>&copy; 2025 OpenSaaS. All rights reserved.</p>
-      </div>
-    </footer>
-  );
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 12,
+      stiffness: 200
+    }
+  }
 }
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow container mx-auto p-4">
-        {/* Existing content */}
-      </main>
-      <Footer />
-    </div>
-  );
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4">
+      <motion.h1 
+        className="text-5xl md:text-6xl font-extrabold text-white mb-4 mt-4 tracking-tight text-center"
+        variants={titleVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {'Empower Your SaaS Vision'.split(' ').map((word, index) => (
+          <motion.span key={index} className="inline-block mr-2" variants={wordVariants}>
+            {word}
+          </motion.span>
+        ))}
+      </motion.h1>
+      <motion.p 
+        className="text-2xl md:text-3xl text-purple-400 mb-12 text-center max-w-2xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        From Idea to Empire, Faster Than Ever
+      </motion.p>
+      <FeatureGrid />
+    </main>
+  )
 }
+
