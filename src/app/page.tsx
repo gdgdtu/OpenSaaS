@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import FeatureGrid from '@/components/ui/FeatureGrid';
-import ContactForm from '@/components/ui/ContactForm'; // Import the ContactForm component
+import { motion } from 'framer-motion'
+import FeatureGrid from '@/components/ui/FeatureGrid'
+import ContactForm from '@/components/ui/ContactForm'
 
 const titleVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -14,7 +14,7 @@ const titleVariants = {
       staggerChildren: 0.1
     }
   }
-};
+}
 
 const wordVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,7 +27,7 @@ const wordVariants = {
       stiffness: 200
     }
   }
-};
+}
 
 export default function Home() {
   return (
@@ -55,5 +55,6 @@ export default function Home() {
       <FeatureGrid />
       <ContactForm /> {/* Add the ContactForm component here */}
     </main>
-  );
+  )
 }
+
