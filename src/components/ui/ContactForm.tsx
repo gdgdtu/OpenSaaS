@@ -4,28 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Card  from './Card'; // Adjust path as necessary
 import { Shield } from 'lucide-react'; // Example icon import
-
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            type: 'spring',
-            stiffness: 100,
-        },
-    },
-};
+import { ContainerVariants, ItemVariants } from '../variants';
 
 export default function ContactForm() {
     const [name, setName] = useState('');
@@ -57,11 +36,11 @@ export default function ContactForm() {
     return (
         <motion.div
             className="container mx-auto px-4 py-12"
-            variants={containerVariants}
+            variants={ContainerVariants}
             initial="hidden"
             animate="visible"
         >
-            <motion.div variants={itemVariants}>
+            <motion.div variants={ItemVariants}>
                 <Card title="Contact Us" Icon={Shield} color="#FF6B6B">
                     {submitted && <p>Thank you for your message! We&apos;ll get back to you soon.</p>}
                     {error && <p style={{ color: 'red' }}>{error}</p>}
