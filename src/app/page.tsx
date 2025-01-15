@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import FeatureGrid from '@/components/ui/FeatureGrid'
+import { Analytics } from '@vercel/analytics/next';
 
 const titleVariants = {
   hidden: { opacity: 0, y: -20 },
@@ -52,7 +53,11 @@ export default function Home() {
         From Idea to Empire, Faster Than Ever
       </motion.p>
       <FeatureGrid />
+      <Analytics debug={true} beforeSend={(e) => {
+        if(e.url.includes('private')) return null
+        return e
+      }}/>
+
     </main>
   )
 }
-
