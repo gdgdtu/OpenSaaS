@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card } from './Card'
+import Card  from './Card'
 import { Shield, CreditCard, Building2, BarChart3 } from 'lucide-react'
 
 const features = [

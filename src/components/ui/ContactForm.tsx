@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Card } from './Card'; // Adjust path as necessary
+import Card  from './Card'; // Adjust path as necessary
 import { Shield } from 'lucide-react'; // Example icon import
 
 const containerVariants = {

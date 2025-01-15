@@ -1,33 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import FeatureGrid from '@/components/ui/FeatureGrid';
-import ContactForm from '@/components/ui/ContactForm'; // Import the ContactForm component
-
-const titleVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.5,
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const wordVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      type: 'spring',
-      damping: 12,
-      stiffness: 200
-    }
-  }
-};
+import {FeatureGrid, ContactForm } from '@/components/ui';
+import { titleVariants, wordVariants } from '@/components/variants';
 
 export default function Home() {
   return (

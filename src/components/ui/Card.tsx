@@ -20,7 +20,7 @@ const descriptionVariants = {
   visible: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } }
 };
 
-export function Card({ title, Icon, color, children }: CardProps) {
+export default function Card({ title, Icon, color, children }: CardProps) {
   return (
     <motion.div
       className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl overflow-hidden shadow-lg relative group"
