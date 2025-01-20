@@ -1,25 +1,26 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { TypeIcon as type, LucideIcon } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { LucideIcon } from 'lucide-react';
 
 interface CardProps {
-  title: string
-  Icon: LucideIcon
-  color: string
+  title: string;
+  Icon: LucideIcon;
+  color: string;
+  children?: React.ReactNode; // Added children prop
 }
 
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-}
+};
 
 const descriptionVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } }
-}
+};
 
-export function Card({ title, Icon, color }: CardProps) {
+export default function Card({ title, Icon, color, children }: CardProps) {
   return (
     <motion.div
       className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl overflow-hidden shadow-lg relative group"
@@ -46,8 +47,9 @@ export function Card({ title, Icon, color }: CardProps) {
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </motion.p>
+        {/* Render children here */}
+        <div>{children}</div>
       </div>
     </motion.div>
-  )
+  );
 }
-
