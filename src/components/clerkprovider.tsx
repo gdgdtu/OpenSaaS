@@ -1,1 +1,1 @@
-const clerkFrontendApi = "pk_test_ZGlyZWN0LWxlbW1pbmctNTUuY2xlcmsuYWNjb3VudHMuZGV2JA"; // Replace with your Clerk API key
+const clerkFrontendApi = "CLERK_API_KEY"; // Replace with your Clerk API key
